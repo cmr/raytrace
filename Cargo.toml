@@ -1,0 +1,13 @@
+[project]
+name = "raytracer"
+version = "0.0.0"
+authors = ["Corey Richardson <corey@octayn.net>"]
+
+[dependencies.gfx]
+git = "http://github.com/gfx-rs/gfx-rs"
+
+[dependencies.cgmath]
+git = "http://github.com/bjz/cgmath-rs"
+
+[dependencies.glfw_platform]
+git = "http://github.com/gfx-rs/gfx-rs"

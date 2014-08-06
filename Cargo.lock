@@ -1,0 +1,87 @@
+[root]
+name = "raytracer"
+version = "0.0.0"
+dependencies = [
+ "cgmath 0.0.1 (git+http://github.com/bjz/cgmath-rs#e9a1723ef42ecf238f38e991eae746b928c6faf8)",
+ "gfx 0.1.0 (git+http://github.com/gfx-rs/gfx-rs#8c08ee9187ac8ae57275e9f9dcee983355e933aa)",
+ "glfw_platform 0.1.0 (git+http://github.com/gfx-rs/gfx-rs#8c08ee9187ac8ae57275e9f9dcee983355e933aa)",
+]
+
+[[package]]
+name = "cgmath"
+version = "0.0.1"
+source = "git+http://github.com/bjz/cgmath-rs#e9a1723ef42ecf238f38e991eae746b928c6faf8"
+
+[[package]]
+name = "comm"
+version = "0.1.0"
+source = "git+http://github.com/gfx-rs/gfx-rs#8c08ee9187ac8ae57275e9f9dcee983355e933aa"
+
+[[package]]
+name = "device"
+version = "0.1.0"
+source = "git+http://github.com/gfx-rs/gfx-rs#8c08ee9187ac8ae57275e9f9dcee983355e933aa"
+dependencies = [
+ "comm 0.1.0 (git+http://github.com/gfx-rs/gfx-rs#8c08ee9187ac8ae57275e9f9dcee983355e933aa)",
+ "gl 0.0.1 (git+https://github.com/bjz/gl-rs.git#2ddffa202045ca62302def27bcfaddc3477effab)",
+]
+
+[[package]]
+name = "gfx"
+version = "0.1.0"
+source = "git+http://github.com/gfx-rs/gfx-rs#8c08ee9187ac8ae57275e9f9dcee983355e933aa"
+dependencies = [
+ "device 0.1.0 (git+http://github.com/gfx-rs/gfx-rs#8c08ee9187ac8ae57275e9f9dcee983355e933aa)",
+ "gfx_macros 0.1.0 (git+http://github.com/gfx-rs/gfx-rs#8c08ee9187ac8ae57275e9f9dcee983355e933aa)",
+ "render 0.1.0 (git+http://github.com/gfx-rs/gfx-rs#8c08ee9187ac8ae57275e9f9dcee983355e933aa)",
+]
+
+[[package]]
+name = "gfx_macros"
+version = "0.1.0"
+source = "git+http://github.com/gfx-rs/gfx-rs#8c08ee9187ac8ae57275e9f9dcee983355e933aa"
+
+[[package]]
+name = "gl"
+version = "0.0.1"
+source = "git+https://github.com/bjz/gl-rs.git#2ddffa202045ca62302def27bcfaddc3477effab"
+dependencies = [
+ "gl_generator 0.0.1 (git+https://github.com/bjz/gl-rs.git#2ddffa202045ca62302def27bcfaddc3477effab)",
+]
+
+[[package]]
+name = "gl_generator"
+version = "0.0.1"
+source = "git+https://github.com/bjz/gl-rs.git#2ddffa202045ca62302def27bcfaddc3477effab"
+dependencies = [
+ "rust-xml 0.1.0 (git+https://github.com/netvl/rust-xml#90df366a61e892537473dea892e6e032a3425a7e)",
+]
+
+[[package]]
+name = "glfw"
+version = "0.0.1"
+source = "git+https://github.com/bjz/glfw-rs.git#91c77bd20dd481fa0a9fc9d10d4c0367986ebac7"
+
+[[package]]
+name = "glfw_platform"
+version = "0.1.0"
+source = "git+http://github.com/gfx-rs/gfx-rs#8c08ee9187ac8ae57275e9f9dcee983355e933aa"
+dependencies = [
+ "device 0.1.0 (git+http://github.com/gfx-rs/gfx-rs#8c08ee9187ac8ae57275e9f9dcee983355e933aa)",
+ "gfx 0.1.0 (git+http://github.com/gfx-rs/gfx-rs#8c08ee9187ac8ae57275e9f9dcee983355e933aa)",
+ "glfw 0.0.1 (git+https://github.com/bjz/glfw-rs.git#91c77bd20dd481fa0a9fc9d10d4c0367986ebac7)",
+]
+
+[[package]]
+name = "render"
+version = "0.1.0"
+source = "git+http://github.com/gfx-rs/gfx-rs#8c08ee9187ac8ae57275e9f9dcee983355e933aa"
+dependencies = [
+ "device 0.1.0 (git+http://github.com/gfx-rs/gfx-rs#8c08ee9187ac8ae57275e9f9dcee983355e933aa)",
+]
+
+[[package]]
+name = "rust-xml"
+version = "0.1.0"
+source = "git+https://github.com/netvl/rust-xml#90df366a61e892537473dea892e6e032a3425a7e"
+
