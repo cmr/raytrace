@@ -15,7 +15,7 @@ struct Vertex {
 }
 #[shader_param]
 struct Param {
-    tex: gfx::TextureParam
+    tex: gfx::shade::TextureParam
 }
 
 static VERTEX: gfx::ShaderSource = shaders! {
@@ -52,29 +52,12 @@ fn main() {
 
     window.set_key_polling(true);
 
-    let mut device = gfx::build()
+    let (mut renderer, mut device) = gfx::build()
         .with_glfw_window(&mut window)
         .with_queue_size(2)
-        .spawn(proc(rend) render(rend))
+        .create()
         .unwrap();
 
-    while !window.should_close() {
-        glfw.poll_events();
-        for (_, event) in glfw::flush_messages(&events) {
-            match event {
-                glfw::KeyEvent(glfw::KeyEscape, _, glfw::Press, _) => {
-                    window.set_should_close(true);
-                }
-                _ => { }
-            }
-        }
-        device.update();
-    }
-    device.close();
-}
-
-fn render(mut renderer: gfx::Renderer) {
-    // we want the alpha to be 1
     let tex_data = Vec::from_fn(600*600, |_| std::rand::random::<u32>() | 0xFF);
 
     let frame = gfx::Frame::new(600, 600);
@@ -114,12 +97,32 @@ fn render(mut renderer: gfx::Renderer) {
         stencil: None
     };
 
-    while !renderer.should_finish() {
+    while !window.should_close() {
         renderer.clear(clear, frame);
-        renderer.draw(&mesh, slice, frame, &program, state).unwrap();
+        renderer.draw(&mesh, slice, &frame, &program, &state).unwrap();
         renderer.end_frame();
+
+        glfw.poll_events();
+        for (_, event) in glfw::flush_messages(&events) {
+            match event {
+                glfw::KeyEvent(glfw::KeyEscape, _, glfw::Press, _) => {
+                    window.set_should_close(true);
+                }
+                _ => { }
+            }
+        }
+        device.update();
+    }
+    device.close();
+}
+
+/*
+fn render(mut renderer: gfx::Renderer) {
+    // we want the alpha to be 1
+    while !renderer.should_finish() {
         for err in renderer.errors() {
             println!(":-( {}", err);
         }
     }
 }
+*/
