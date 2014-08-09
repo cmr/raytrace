@@ -15,7 +15,7 @@ struct Vertex {
 }
 #[shader_param]
 struct Param {
-    tex: gfx::TextureParam
+    tex: gfx::shade::TextureParam
 }
 
 static VERTEX: gfx::ShaderSource = shaders! {
@@ -116,7 +116,7 @@ fn render(mut renderer: gfx::Renderer) {
 
     while !renderer.should_finish() {
         renderer.clear(clear, frame);
-        renderer.draw(&mesh, slice, frame, &program, state).unwrap();
+        renderer.draw(&mesh, slice, &frame, &program, &state).unwrap();
         renderer.end_frame();
         for err in renderer.errors() {
             println!(":-( {}", err);
