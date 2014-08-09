@@ -75,7 +75,7 @@ fn main() {
 
 fn render(mut renderer: gfx::Renderer) {
     // we want the alpha to be 1
-    let tex_data = Vec::from_fn(600*600, |_| std::rand::random::<u32>() | 0xFF);
+    let tex_data = Vec::from_fn(600*600, |_| std::rand::random::<u32>() | 0xFF000000);
 
     let frame = gfx::Frame::new(600, 600);
     let state = gfx::DrawState::new();
